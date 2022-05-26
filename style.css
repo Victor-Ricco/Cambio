@@ -39,6 +39,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 10px;
     background:#0e1011;
     width: 50%;
     border-radius: 5px;
@@ -48,11 +49,7 @@ body {
     border: none;
     background: none;
     color: whitesmoke;
-}
-
-#buscaMoeda ul {
-    margin-right: 10px;
-    list-style: none;
+    padding: 15px;
     float: left;
 }
 
@@ -67,11 +64,6 @@ body {
     float: right;
     font-size:larger;
     color: #228c22;
-}
-
-#buscaMoeda li {
-    color: #228c22;
-    padding: 10px;
 }
 
 #resultados {
