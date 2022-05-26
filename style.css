@@ -1,0 +1,98 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+body {
+    background: #23282b;
+    display: flex;
+    justify-content: center;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#titulo {
+    color: whitesmoke;
+    margin-bottom: 15px;
+    font-size: 5em;
+}
+
+.infos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+#buscaMoeda {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background:#0e1011;
+    width: 50%;
+    border-radius: 5px;
+}
+
+#buscaMoeda input {
+    border: none;
+    background: none;
+    color: whitesmoke;
+}
+
+#buscaMoeda ul {
+    margin-right: 10px;
+    list-style: none;
+    float: left;
+}
+
+#buscaMoeda a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buscaMoeda i {
+    margin-left: 5px;
+    float: right;
+    font-size:larger;
+    color: #228c22;
+}
+
+#buscaMoeda li {
+    color: #228c22;
+    padding: 10px;
+}
+
+#resultados {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#valores {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #0e1011;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 18em;
+}
+
+#valores p {
+    color:#228c22;
+    text-align: center;
+}
