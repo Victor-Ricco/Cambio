@@ -7,26 +7,50 @@ let requestOptions = {
     headers: myHeaders
 };
 
-function createElement () {
-    //Criar o elemento em que os valores vao ser inseridos
+document.getElementById('searchIcon').addEventListener('click', getSymbols);
+
+//Cria os elementos para serem preenchidos e visualizados
+const createElement =  () => {
+    let elementSection = document.createElement('section');
+    let elementPNomeMoeda = document.createElement('p');
+    let elementPValorMoeda = document.createElement('p');
+    elementSection.id = "valores";
+    elementPNomeMoeda.id = "nomeMoeda";
+    elementPValorMoeda.id = "valorMoeda";
+    return {
+        elementSection,
+        elementPNomeMoeda,
+        elementPValorMoeda
+    };
 }
 
-function AddValues () {
-    //Adiciona os valores no elemento, os coloca em um array, envia esse array para "appendElements" para serem inseridos no HTML
+//Adiciona os valores no elemento e os motra no HTML
+function sendAndAppendValues (symbols) {
+    if (document.getElementById('resultados').hasChildNodes()) {
+        document.getElementById('resultados').innerHTML = '';
+    }
+    symbols.forEach(element => {
+        let {elementSection, elementPNomeMoeda, elementPValorMoeda} = createElement();
+        elementPNomeMoeda.innerText = element[0];
+        elementPValorMoeda.innerText = `$ ${element[1].toFixed(2)}`;
+        elementSection.appendChild(elementPNomeMoeda);
+        elementSection.appendChild(elementPValorMoeda);
+        document.getElementById('resultados').appendChild(elementSection)
+    });
 }
 
-function appendElements () {
-    //Envia os elementos atravez do DOM para o HTML
-}
-
+//captura o preço atual de cada moeda referenta a moeda pesquisada
 async function getData (symbols) {
-    const data = await fetch(`https://api.apilayer.com/fixer/latest?symbols=${symbols}&base=${'BRL'}`, requestOptions)
+    let symbolCoin = document.getElementById('searchBox').value
+    const data = await fetch(`https://api.apilayer.com/fixer/latest?symbols=${symbols}&base=${symbolCoin.toUpperCase()}`, requestOptions)
     .then(function(response){
         return response.json();
-    });
-    console.log(Object.entries(data.rates));
+    })
+    .catch(error => window.alert(error));
+    sendAndAppendValues(Object.entries(data.rates))
 }
 
+//Captura todos os simbolos e nomes das moedas
 async function getSymbols () {
     const dataSymbols = await fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
     .then(function(response){

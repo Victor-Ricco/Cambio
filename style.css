@@ -82,9 +82,25 @@ body {
     padding: 10px;
     border-radius: 5px;
     width: 18em;
+    opacity: 80%;
+    transition: 0.2s ease-in-out;
 }
 
 #valores p {
     color:#228c22;
     text-align: center;
+}
+
+a{
+    opacity: 50%;
+    transition: 0.2s ease-in;
+}
+
+a:hover {
+    opacity: 100%;
+    transform: scale(1.2,1.2);
+}
+
+#valores:hover {
+    opacity: 100%;
 }
